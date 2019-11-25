@@ -1,0 +1,33 @@
+provider:
+    resource: "@ProviderBundle/Resources/config/routing.yml"
+    prefix:   /
+
+service:
+    resource: "@ServiceBundle/Resources/config/routing.yml"
+    prefix:   /
+
+forum:
+    resource: "@ForumBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ad:
+    resource: "@AdBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ask_service:
+    resource: "@AskServiceBundle/Resources/config/routing.yml"
+    prefix:   /
+
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fixit:
+    resource: "@fixitBundle/Resources/config/routing.yml"
+    prefix:   /fixit
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
