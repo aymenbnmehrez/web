@@ -1,0 +1,24 @@
+client_homepage:
+    path:     /
+    defaults: { _controller: ClientBundle:Default:index }
+
+client_addAskService:
+    path:     /add
+    defaults: { _controller: ClientBundle:AskService:add }
+
+client_displayservice:
+        path:     /displayservice
+        defaults: { _controller: ClientBundle:AskService:display }
+detail_service:
+    path:     /detailservice/{id}
+    defaults: { _controller: ClientBundle:Default:afficheDetail }
+our_category:
+    path:     /ourcategory
+    defaults: { _controller: ClientBundle:AskService:OurCategory }
+client_rating:
+    path:     /rating
+    defaults: { _controller: ClientBundle:AskService:Rating }
+    methods:  POST
+#client_displaycategory:
+#    path:     /displayCategory
+#    defaults: { _controller: ClientBundle:Default:displayCategory }
