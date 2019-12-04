@@ -36,10 +36,29 @@ class AskService
      * @ORM\Column(type="string",length=255)
      */
     private $started_at;
+
     /**
-     * @ORM\Column(type="string",length=255, options={"default": "Not Confirmed"})
+     * @return mixed
      */
-    private $status;
+    public function getServiceName()
+    {
+        return $this->service_name;
+    }
+    public function getService_Name()
+    {
+        return $this->service_name;
+    }
+    /**
+     * @param mixed $service_name
+     */
+    public function setServiceName($service_name)
+    {
+        $this->service_name = $service_name;
+    }
+    /**
+     * @ORM\Column(type="string",length=255)
+     */
+    private $status= 'Not Confirmed';
     /**
      * @ORM\Column(type="integer")
      */
@@ -57,7 +76,10 @@ class AskService
     {
         return $this->ask_service_id;
     }
-
+    public function getAsk_Service_Id()
+    {
+        return $this->ask_service_id;
+    }
     /**
      * @param mixed $ask_service_id
      */
@@ -121,7 +143,10 @@ class AskService
     {
         return $this->started_at;
     }
-
+    public function getStarted_At()
+    {
+        return $this->started_at;
+    }
     /**
      * @param mixed $started_at
      */

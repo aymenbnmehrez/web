@@ -3,9 +3,11 @@
 
 namespace AppBundle\Entity;
 
+use DateTime;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\PostRepository")
  * @ORM\Table(name="post")
  */
 class Post
@@ -25,7 +27,7 @@ class Post
      */
     private $content;
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column( type="datetime")
      */
     private $post_date;
     /**
@@ -41,7 +43,10 @@ class Post
     {
         return $this->post_id;
     }
-
+    public function getPost_Id()
+    {
+        return $this->post_id;
+    }
     /**
      * @param mixed $post_id
      */
@@ -57,7 +62,26 @@ class Post
     {
         return $this->title;
     }
+    /**
+     * @ORM\OneToMany(targetEntity="Comments",mappedBy="Post")
+     */
+    private $commentss;
 
+    /**
+     * @return ArrayCollection
+     */
+    public function getCommentss()
+    {
+        return $this->commentss;
+    }
+
+    /**
+     * @param ArrayCollection $commentss
+     */
+    public function setCommentss($commentss)
+    {
+        $this->commentss = $commentss;
+    }
     /**
      * @param mixed $title
      */
@@ -89,7 +113,10 @@ class Post
     {
         return $this->post_date;
     }
-
+    public function getPost_Date()
+    {
+        return $this->post_date;
+    }
     /**
      * @param mixed $post_date
      */
@@ -113,5 +140,9 @@ class Post
     {
         $this->user = $user;
     }
+    public function  __construct(){
+        $this->commentss=new ArrayCollection();
+        $this->post_date = new DateTime();
 
+    }
 }

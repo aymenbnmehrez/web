@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+                    {% block body %}
+
+    <div class="forum">
+
+
+
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">publisher</th>
+                    <th scope="col">title</th>
+                    <th scope="col">content</th>
+                    <th scope="col">date</th>
+
+
+                </tr>
+                </thead>
+                    {% for i in P %}
+<tbody>
+                <tr>
+                    <th scope="col"> {{ i.user.first_name~' '~i.user.last_name }}</th>
+                    <th scope="col">{{ i.title }}</th>
+                    <th scope="col">  {{ i.content }}</th>
+                    <th scope="col">   {{ i.post_date|date('Y-m-d H:i:s') }}</th>
+
+
+
+                    <th scope="col">  <a href="{{path('admin_deletePost',{'id':i.post_id})}}"> <button><span class="glyphicon glyphicon-trash" ></span>
+                                Delete     </button></a></th>
+
+
+
+                    <th scope="col"><a href="{{path('admin_showComment',{'id':i.post_id})}}"> <button><span class="glyphicon glyphicon-search" ></span>
+                                Show Comment     </button></a></th>
+                </tr></tbody></table></div>
+    {% endfor %}
+
+
+
+
+
+    <style>
+        .forum{
+            margin-top: 10%;
+            margin-left: 20%;
+            margin-right: 20%;
+
+        }
+        .datepost{
+            margin-left: 90%;
+        }
+        .addpost{
+            margin-top: 2%;
+            margin-left: 80%;
+        }
+    </style>
+
+{% endblock %}

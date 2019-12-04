@@ -1,3 +1,0 @@
-ad_homepage:
-    path:     /
-    defaults: { _controller: AdBundle:Default:index }

@@ -4,6 +4,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="category")
@@ -29,7 +31,7 @@ class Category
      */
     private $image;
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Service",mappedBy="category")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Service",mappedBy="category",cascade={"persist","remove"})
      */
     private $services;
 
@@ -74,8 +76,40 @@ class Category
     }
 
     /**
-     * @param mixed $image
+     * @return mixed
      */
+    public function getCategoryId()
+    {
+        return $this->category_id;
+    }
+
+    /**
+     * @param mixed $category_id
+     */
+    public function setCategoryId($category_id)
+    {
+        $this->category_id = $category_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @param mixed $image
+*/
     public function setImage($image)
     {
         $this->image = $image;
@@ -87,4 +121,7 @@ class Category
 
         // your own logic
     }
+
+
+
 }

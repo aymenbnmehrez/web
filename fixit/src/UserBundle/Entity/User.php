@@ -3,6 +3,7 @@
 
 namespace UserBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\ManyToOne;
@@ -33,6 +34,83 @@ class User extends BaseUser
      * @ORM\Column(type="string",length=255,nullable=true)
      */
     private $image;
+    /**
+     * @ORM\Column(type="string",length=255,nullable=true)
+     */
+    private $bio;
+    /**
+     * @ORM\Column(type="integer",nullable=true)
+     */
+    private $phone;
+    /**
+     * @ORM\Column(type="string",length=255)
+     */
+    private $status= 'Not Confirmed';
+
+    /**
+     * @return mixed
+     */
+    public function getBio()
+    {
+        return $this->bio;
+    }
+
+    /**
+     * @param mixed $bio
+     */
+    public function setBio($bio)
+    {
+        $this->bio = $bio;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @param mixed $phone
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getJobs()
+    {
+        return $this->jobs;
+    }
+
+    /**
+     * @param ArrayCollection $jobs
+     */
+    public function setJobs($jobs)
+    {
+        $this->jobs = $jobs;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
 //    /**
 //     * @ORM\@ManyToMany(targetEntity="AppBundle\Entity\Category")
 //     * @JoinTable(name="provider_category",
@@ -49,6 +127,38 @@ class User extends BaseUser
        *      )
        **/
     private $categories;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getPosts()
+    {
+        return $this->posts;
+    }
+
+    /**
+     * @param ArrayCollection $posts
+     */
+    public function setPosts($posts)
+    {
+        $this->posts = $posts;
+    }
     /**
      * @return \Doctrine\Common\Collections\ArrayCollection
      */
@@ -60,6 +170,10 @@ class User extends BaseUser
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\AskService",mappedBy="user")
      */
     private $ask_services;
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Job",mappedBy="user")
+     */
+    private $jobs;
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Post",mappedBy="user")
      */
@@ -116,6 +230,10 @@ class User extends BaseUser
     {
         return $this->first_name;
     }
+    public function getFirst_Name()
+    {
+        return $this->first_name;
+    }
 
     /**
      * @param mixed $first_name
@@ -132,7 +250,10 @@ class User extends BaseUser
     {
         return $this->last_name;
     }
-
+    public function getLast_Name()
+    {
+        return $this->last_name;
+    }
     /**
      * @param mixed $last_name
      */
@@ -161,9 +282,11 @@ class User extends BaseUser
     {
         parent::__construct();
         $this->categories = new \Doctrine\Common\Collections\ArrayCollection();  // your own logic
-        $this->ads = new ArrayCollection();  // your own logic
-        $this->ask_services = new ArrayCollection();  // your own logic
-        $this->posts = new ArrayCollection();  // your own logic
+        $this->ads = new \Doctrine\Common\Collections\ArrayCollection();  // your own logic
+        $this->ask_services = new \Doctrine\Common\Collections\ArrayCollection();  // your own logic
+        $this->posts = new \Doctrine\Common\Collections\ArrayCollection();  // your own logic
+        $this->jobs = new \Doctrine\Common\Collections\ArrayCollection();  // your own logic
+
 
 
 

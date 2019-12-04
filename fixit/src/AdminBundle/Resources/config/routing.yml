@@ -1,0 +1,15 @@
+admin_homepage1:
+    path:     /
+    defaults: { _controller: AdminBundle:Default:index }
+admin_forum:
+    path:     /forum
+    defaults: { _controller: AdminBundle:Post:list }
+admin_showComment:
+    path:     /showComment/{id}
+    defaults: { _controller: AdminBundle:Comment:list }
+admin_deleteComment:
+    path:     /deleteComment/{id}
+    defaults: { _controller: AdminBundle:Comment:deleteComment }
+admin_deletePost:
+    path:     /deletePost/{id}
+    defaults: { _controller: AdminBundle:Post:deletePost }

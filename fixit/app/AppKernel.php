@@ -20,11 +20,14 @@ class AppKernel extends Kernel
             new fixitBundle\fixitBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new UserBundle\UserBundle(),
-            new AskServiceBundle\AskServiceBundle(),
-            new AdBundle\AdBundle(),
-            new ForumBundle\ForumBundle(),
-            new ServiceBundle\ServiceBundle(),
+           // new AskServiceBundle\AskServiceBundle(),
+           // new AdBundle\AdBundle(),
+           // new ForumBundle\ForumBundle(),
+            //new ServiceBundle\ServiceBundle(),
             new ProviderBundle\ProviderBundle(),
+            new ClientBundle\ClientBundle(),
+            new AdminBundle\AdminBundle(),
+//            new Ob\HighchartsBundle\ObHighchartsBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

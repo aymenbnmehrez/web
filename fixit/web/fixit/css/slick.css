@@ -17,7 +17,9 @@
         touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
 }
-
+.askService{
+    margin-left: 50%;
+}
 .slick-list
 {
     position: relative;

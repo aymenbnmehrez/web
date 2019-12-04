@@ -1,3 +1,0 @@
-ask_service_homepage:
-    path:     /
-    defaults: { _controller: AskServiceBundle:Default:index }
