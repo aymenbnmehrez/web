@@ -1,0 +1,39 @@
+client_homepage:
+    path:     /
+    defaults: { _controller: ClientBundle:Default:index }
+client_addAskService:
+    path:     /add
+    defaults: { _controller: ClientBundle:AskService:add }
+client_displayservice:
+        path:     /displayservice
+        defaults: { _controller: ClientBundle:AskService:display }
+client_addPost:
+    path:     /createPost
+    defaults: { _controller: ClientBundle:Post:create }
+client_forum:
+        path:     /forum
+        defaults: { _controller: ClientBundle:Post:list }
+#client_deletePost:
+#        path:     /deletePost/{id}
+#        defaults: { _controller: ClientBundle:Post:deletePost }
+#client_editPost:
+#        path:     /editPost/{id}
+#        defaults: { _controller: ClientBundle:Post:editPost }
+client_deletePost:
+         path:     /deletePost/{id}
+         defaults: { _controller: ClientBundle:Post:deletePost }
+client_editPost:
+         path:     /editPost/{id}
+         defaults: { _controller: ClientBundle:Post:editPost }
+client_addComment:
+         path:     /createComment/{id}
+         defaults: { _controller: ClientBundle:Comment:create }
+client_showComment:
+  path:     /showComment/{id}
+  defaults: { _controller: ClientBundle:Comment:list }
+client_deleteComment:
+  path:     /deleteComment/{id}
+  defaults: { _controller: ClientBundle:Comment:deleteComment }
+client_test:
+  path:     /test
+  defaults: { _controller: ClientBundle:Post:test }

@@ -1,0 +1,7 @@
+fixit_homepage:
+    path:     /
+    defaults: { _controller: fixitBundle:Default:index }
+
+#fixit_signin:
+#    path:     /login
+#    defaults: { _controller:fixitBundle:Auth:singin }

@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+{% block header %}
+
+    <!-- container -->
+{% endblock %}
+{% block body %}
+
+    <a href="{{path('client_addPost')}}"> <button class="btn btn-primary btn-lg addpost"><span class="glyphicon glyphicon-plus" ></span>
+            Add post</button></a>
+
+    {% for i in P %}
+
+        {% set difference = date(i.post_date).diff(date("now")) %}
+        {% set leftDays = difference.days %}
+        <div class="forum">
+            <div class="input-group">
+
+                <h2 class="badge badge-pill badge badge-pill badge-secondary cercle">{{ i.user.first_name|first|upper }}</h2>
+
+                <h2 class="text-secondary cc">{{ i.user.first_name~' '~i.user.last_name }}</h2></div>
+            <div class="jumbotron" >
+                <h2>{{ i.title }}</h2>
+                <p>{{ i.content }}</p>
+                <p class="badge badge-pill badge-secondary datepost">{{ i.post_date|date('Y-m-d H:i:s') }}</p>
+                {% if leftDays < 1 %}
+                    <h2 class="badge badge-pill badge-success session">session active 💬</h2>
+                {% else %}
+                    <h2 class="badge badge-pill badge-danger session">session inactive ⛔</h2>
+                {% endif %}
+                </br>
+                </br>
+            </div>
+            <div class="btn-group btn-group-lg datepostt" role="group" aria-label="Basic example">
+
+                {% if i.user.id == C.id %}
+
+                    <a href="{{path('client_deletePost',{'id':i.post_id})}}"> <button class="btn btn-danger btn-lg btn1  "><span class="glyphicon glyphicon-trash" ></span>
+                            Delete     </button></a>
+                    <a href="{{path('client_editPost',{'id':i.post_id})}}"> <button class="btn btn-primary btn-lg btn2  "><span class="glyphicon glyphicon-edit" ></span>
+                            Edit     </button></a>
+                {% endif %}
+
+                {% if leftDays < 1 %}
+
+
+                    <a href="{{path('client_addComment',{'id':i.post_id})}}"> <button class="btn btn-primary btn-lg btn2"><span class="glyphicon glyphicon-edit" ></span>
+                            Comment     </button></a>
+                {% endif %}
+
+
+                <a href="{{path('client_showComment',{'id':i.post_id})}}"> <button class="btn btn-primary btn-lg btn2"><span class="glyphicon glyphicon-search" ></span>
+                        Show Comment     </button></a>
+            </div>
+        </div>
+
+    {% endfor %}
+
+
+    <!-- HOME -->
+    <style>
+        .forum{
+            margin-top: 10%;
+            margin-left: 20%;
+            margin-right: 20%;
+
+        }
+
+        .datepost{
+            margin-left: 75%;
+        }
+        .datepostt{
+            margin-top: 0pc;
+        }
+        .addpost{
+            margin-top: 2%;
+            margin-left: 80%;
+        }
+        .cc{
+            margin-left: 1pc;
+        }
+        .session{
+            font-size:medium;
+
+        }
+        .cercle{
+            font-size:x-large;
+
+        }
+        .btn2{
+            margin-left: 1pc;
+
+        }
+    </style>
+
+    <!-- /HOME -->
+{% endblock %}
