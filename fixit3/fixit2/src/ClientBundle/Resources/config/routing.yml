@@ -1,0 +1,34 @@
+client_homepage:
+    path:     /
+    defaults: { _controller: ClientBundle:Default:index }
+
+client_addAskService:
+    path:     /add
+    defaults: { _controller: ClientBundle:AskService:add }
+
+client_displayservice:
+        path:     /displayservice
+        defaults: { _controller: ClientBundle:AskService:display }
+
+client_displayad:
+    path:     /showAllAds
+    defaults: { _controller: ClientBundle:Default:showAllAd }
+
+client_moredetails:
+    path:     /showMoreDetails{ad_id}
+    defaults: { _controller: ClientBundle:Default:showMoreDetails }
+
+client_addFav:
+    path:     /addFav/{id}
+    defaults: { _controller: ClientBundle:Default:AddFav }
+
+client_showMyFavAds:
+    path:     /showMyFavAds
+    defaults: { _controller: ClientBundle:Default:showMyFavAds }
+
+client_deleteFavAds:
+    path:     /deleteFavAds/{adFav_id}
+    defaults: { _controller: ClientBundle:Default:deleteFavAds }
+    #methods: [GET]
+
+

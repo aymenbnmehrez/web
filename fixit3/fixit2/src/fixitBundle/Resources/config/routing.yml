@@ -1,0 +1,19 @@
+fixit_homepage:
+    path:     /
+    defaults: { _controller: fixitBundle:Default:index }
+
+admin_homepage:
+    path:     /admin
+    defaults: { _controller: fixitBundle:Default:admin }
+
+admin_showad:
+    path:     /showAllAd
+    defaults: { _controller: fixitBundle:Default:showAllAd }
+
+admin_deletead:
+    path:     /deleteAd{ad_id}
+    defaults: { _controller: fixitBundle:Default:deleteAd }
+
+#fixit_signin:
+#    path:     /login
+#    defaults: { _controller:fixitBundle:Auth:singin }
